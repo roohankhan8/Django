@@ -16,7 +16,7 @@
     <!-- Manual CSS -->
     <!-- <link rel="stylesheet" href="style.css"> -->
 
-    <title> {% block title %}{% endblock title %}  Roohan Pakwan</title>
+    <title>{% block title %}{% endblock title %} Roohan Pakwan</title>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -79,7 +79,20 @@
         </div>
       </div>
     </nav>
-    {% block body %}{% endblock body %}
+    {% if messages %} {% for message in messages %}
+    <div
+      class="alert alert-{{ message.tags }} alert-dismissible fade show"
+      role="alert"
+    >
+      <strong>{{ message }}</strong>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+      ></button>
+    </div>
+    {% endfor %} {% endif %} {% block body %}{% endblock body %}
 
     <!-- Optional JavaScript; choose one of the two! -->
 
